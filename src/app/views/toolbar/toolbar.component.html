@@ -1,0 +1,13 @@
+<mat-toolbar>
+  <span>TV App</span>
+  <span style="margin: 0 auto"></span>
+  <div class="search-container">
+    <form>
+      <mat-form-field class="search">
+        <!--        using two way binding for the router link-->
+        <input matInput placeholder="Favorite Tv Show" [(ngModel)]="search" name="search">
+      </mat-form-field>
+      <button mat-icon-button routerLink="/results/{{search}}"><mat-icon>search</mat-icon></button>
+    </form>
+  </div>
+</mat-toolbar>

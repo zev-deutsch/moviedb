@@ -1,0 +1,22 @@
+<app-toolbar></app-toolbar>
+<mat-accordion>
+  <!--displaying all the shows with the details-->
+  <mat-expansion-panel *ngFor="let movie of movies">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{movie.title}}
+      </mat-panel-title>
+      <mat-panel-title>
+      </mat-panel-title>
+      <mat-panel-title>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <span class="flex-container">
+        <img *ngIf="movie.posterPath" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2{{movie.posterPath}}" alt="test">
+        <span [innerHTML]="movie.overview"></span>
+    </span>
+<!--    <mat-action-row>-->
+<!--      <button style="margin-top: 5px" mat-flat-button color="warn" routerLink="/seasons/{{show.id}}">Details</button>-->
+<!--    </mat-action-row>-->
+  </mat-expansion-panel>
+</mat-accordion>
