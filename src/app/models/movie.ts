@@ -21,3 +21,10 @@ export class Movie {
     this.voteCount = args.vote_count;
   }
 }
+
+export class Search {
+  query: string;
+  constructor(query: string) {
+    this.query = query;
+  }
+}

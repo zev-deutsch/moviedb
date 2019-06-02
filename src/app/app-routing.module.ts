@@ -4,7 +4,7 @@ import {MoviesComponent} from './views/results/movies/movies.component';
 import {ToolbarComponent} from './views/toolbar/toolbar.component';
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: 'results'},
+  {path: '', pathMatch: 'full', redirectTo: 'search'},
   {path: 'search', component: ToolbarComponent},
   {path: 'results/:search', component: MoviesComponent}
 ];

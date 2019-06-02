@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {CardModule} from 'primeng/card';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatIconModule,
     FormsModule,
     MatInputModule,
-    MatExpansionModule
+    MatExpansionModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

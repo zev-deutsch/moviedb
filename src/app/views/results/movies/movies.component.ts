@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MoviedbService} from '../../../models/moviedb.service';
 import {ActivatedRoute} from '@angular/router';
-import {Movie} from '../../../models/movie';
+import {Movie, Search} from '../../../models/movie';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-movies',
@@ -9,7 +10,8 @@ import {Movie} from '../../../models/movie';
   styleUrls: ['./movies.component.scss']
 })
 export class MoviesComponent implements OnInit {
-  query: string;
+  query: Search;
+  queryChanged = new Subject<Search>();
   movies: Movie[];
   constructor(private moviedb: MoviedbService, private route: ActivatedRoute) {}
 
@@ -17,13 +19,17 @@ export class MoviesComponent implements OnInit {
     this.getQuery();
     this.SearchMovie();
   }
-
+  // gets the search from the url
   getQuery() {
     this.route.paramMap.subscribe((param) => {
-      this.query = param.get('search');
+      this.query = new Search(param.get('search'));
+      // the auto load is not working wet not sure why but i'll fegger it out soon
+      this.queryChanged.subscribe(change => {
+        this.query = change;
+      });
     });
   }
-
+  // searches the movie
   SearchMovie() {
     this.moviedb.movieSearch(this.query).subscribe( results => {
       this.movies = [];
